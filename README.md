@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# YouTube Clone (Proyek Capstone) 🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplikasi web ini adalah kloningan YouTube yang dibuat sebagai Capstone Project untuk program Hacktiv8 Student Developer Initiative. Aplikasi ini memungkinkan pengguna untuk menelusuri, melihat, dan menemukan video menggunakan data dari YouTube v3 API via RapidAPI.
 
-## Available Scripts
+*This web application is a YouTube clone built as a Capstone Project for the Hacktiv8 Student Developer Initiative program. It allows users to browse, view, and discover videos using data from the YouTube v3 API via RapidAPI.*
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### Screenshot 📸
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Di sini tempat kamu menaruh screenshot aplikasimu]
+![alt text](image.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+### Fitur ✨
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Browse Video:** Menampilkan video populer saat halaman pertama kali dimuat.
+* **Kategori:** Sidebar untuk memilih video berdasarkan kategori (Coding, Music, Gaming, dll.).
+* **Fungsi Pencarian:** Mencari video berdasarkan kata kunci.
+* **Desain Responsif:** Tampilan yang menyesuaikan dengan berbagai ukuran layar.
 
-### `npm run build`
+* **Video Browsing:** Displays popular videos on initial load.
+* **Categories:** A sidebar to select videos based on categories (Coding, Music, Gaming, etc.).
+* **Search Functionality:** Search for videos using keywords.
+* **Responsive Design:** The layout adapts to different screen sizes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Teknologi yang Digunakan 💻
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **React.js** (Library Frontend)
+* **Material UI v5** (Komponen UI)
+* **React Router v6** (Navigasi Halaman)
+* **Axios** (HTTP Client untuk memanggil API)
+* **RapidAPI** (Platform untuk mengakses YouTube v3 API)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Setup & Cara Menjalankan Lokal** 🚀
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Untuk menjalankan proyek ini di komputermu, ikuti langkah-langkah berikut:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+*To run this project on your local machine, follow these steps:*
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1.  **Clone Repository Ini**
+    ```bash
+    git clone [https://github.com/NAMAGITHUBMU/NAMAREPOMU.git](https://github.com/NAMAGITHUBMU/NAMAREPOMU.git)
+    ```
 
-## Learn More
+2.  **Masuk ke Direktori Proyek**
+    ```bash
+    cd NAMA-REPO-MU
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4.  **Dapatkan API Key**
+    * Kamu butuh API Key untuk menjalankan aplikasi ini.
+    * Daftar/Login di [RapidAPI](https://rapidapi.com).
+    * Cari dan *subscribe* ke API **"YouTube v3"** oleh `youtube-v31`.
+    * Kamu akan mendapatkan `X-RapidAPI-Key`.
+    ---
+    * *You will need an API Key to run this application.*
+    * *Sign up or log in at [RapidAPI](https://rapidapi.com).*
+    * *Search for and subscribe to the **"YouTube v3"** API by `youtube-v31`.*
+    * *You will get an `X-RapidAPI-Key`.*
 
-### Code Splitting
+5.  **Buat file `.env`**
+    * Salin file `.env.example` menjadi file baru bernama `.env`.
+    * Buka file `.env` dan masukkan API Key-mu.
+        ```
+        REACT_APP_RAPID_API_KEY=MASUKKAN_API_KEY_KAMU_DI_SINI
+        ```
+    * *Copy the `.env.example` file to a new file named `.env`.*
+    * *Open the `.env` file and insert your API Key.*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+6.  **Jalankan Aplikasi**
+    ```bash
+    npm start
+    ```
+    Aplikasi akan berjalan di `http://localhost:3000`.
