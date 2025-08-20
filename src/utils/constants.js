@@ -1,42 +1,42 @@
-import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import HomeIcon from '@mui/icons-material/Home';
-import CodeIcon from '@mui/icons-material/Code';
-import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-import LiveTvIcon from '@mui/icons-material/LiveTv';
-import SchoolIcon from '@mui/icons-material/School';
-import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural';
-import CheckroomIcon from '@mui/icons-material/Checkroom';
-import GraphicEqIcon from '@mui/icons-material/GraphicEq';
+import MovieCreationIcon from '@mui/icons-material/MovieCreation';
+import WhatshotIcon from '@mui/icons-material/Whatshot';
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
+import PsychologyIcon from '@mui/icons-material/Psychology';
+import MasksIcon from '@mui/icons-material/Masks';
+import BrushIcon from '@mui/icons-material/Brush';
+import ArticleIcon from '@mui/icons-material/Article';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import TimerIcon from '@mui/icons-material/Timer';
+import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+import CameraRollIcon from '@mui/icons-material/CameraRoll';
+import MovieFilterIcon from '@mui/icons-material/MovieFilter';
+import VideocamIcon from '@mui/icons-material/Videocam';
 
-export const logo = 'https://i.pinimg.com/736x/20/9b/d8/209bd859c265e7ffc4bfeb75877b23f7.jpg';
+export const logo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png';
 
 export const categories = [
-  { name: 'New', icon: <HomeIcon />, },
-  { name: 'JS Mastery', icon: <CodeIcon />, },
-  { name: 'Coding', icon: <CodeIcon />, },
-  { name: 'ReactJS', icon: <CodeIcon />, },
-  { name: 'NextJS', icon: <CodeIcon />, },
-  { name: 'Music', icon: <MusicNoteIcon /> },
-  { name: 'Education', icon: <SchoolIcon />, },
-  { name: 'Podcast', icon: <GraphicEqIcon />, },
-  { name: 'Movie', icon: <OndemandVideoIcon />, },
-  { name: 'Gaming', icon: <SportsEsportsIcon />, },
-  { name: 'Live', icon: <LiveTvIcon />, },
-  { name: 'Sport', icon: <FitnessCenterIcon />, },
-  { name: 'Fashion', icon: <CheckroomIcon />, },
-  { name: 'Beauty', icon: <FaceRetouchingNaturalIcon />, },
+  { name: 'New Trailers', icon: <MovieCreationIcon />, },
+  { name: 'Trending Movies', icon: <WhatshotIcon />, },
+  { name: 'Tara Arts Movie', icon: <VideocamIcon />, }, // Kategori Demo
+  { name: 'Short Film', icon: <TimerIcon />, },
+  { name: 'Web Series', icon: <SubscriptionsIcon />, },
+  { name: 'Action', icon: <LocalFireDepartmentIcon />, },
   { name: 'Comedy', icon: <TheaterComedyIcon />, },
-  { name: 'Gym', icon: <FitnessCenterIcon />, },
-  { name: 'Crypto', icon: <DeveloperModeIcon />, },
+  { name: 'Sci-Fi', icon: <PsychologyIcon />, },
+  { name: 'Drama', icon: <MasksIcon />, },
+  { name: 'Animation', icon: <BrushIcon />, },
+  { name: 'Documentary', icon: <ArticleIcon />, },
+  { name: 'Romance', icon: <FavoriteIcon />, },
+  { name: 'Horror', icon: <MovieFilterIcon />, },
+  // Kategori Family s/d Classic Film sudah dihapus sesuai permintaan
+  { name: "Behind the Scenes", icon: <CameraRollIcon /> },
 ];
 
-export const demoThumbnailUrl = 'https://i.ibb.co/G2L2Gwp/API-Course.png';
-export const demoChannelUrl = '/channel/UCmXmlB4-HJytD7wek0Uo97A';
-export const demoVideoUrl = '/video/GDa8kZLNhJ4';
-export const demoChannelTitle = 'JavaScript Mastery';
-export const demoVideoTitle = 'Build and Deploy 5 JavaScript & React API Projects in 10 Hours - Full Course | RapidAPI';
-export const demoProfilePicture = 'http://dergipark.org.tr/assets/app/images/buddy_sample.png'
+// Data demo merujuk ke video "DRAGON SUMMONER" dari Tara Arts Movie
+export const demoThumbnailUrl = 'https://i.ytimg.com/vi/QdvTsx-C-HM/hq720.jpg';
+export const demoChannelUrl = '/channel/UCrbkLNFTHuOPJi_Dy6q9gcQ';
+export const demoVideoUrl = '/video/QdvTsx-C-HM';
+export const demoChannelTitle = 'Tara Arts Movie';
+export const demoVideoTitle = 'DRAGON SUMMONER - After Effects Series';
+export const demoProfilePicture = 'https://yt3.googleusercontent.com/ytc/AIdro_k2iZgLFEz-2A6_4p-P-o-T-wz7-P6-yP6-8Q=s176-c-k-c0x00ffffff-no-rj';
