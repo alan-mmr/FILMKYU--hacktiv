@@ -13,11 +13,11 @@ const ChannelDetail = () => {
   useEffect(() => {
     // Ambil data detail channel
     fetchFromAPI(`channels?part=snippet&id=${id}`)
-      .then((data) => setChannelDetail(data?.items[0]));
+      .then((data) => setChannelDetail(data?.items?.[0]));
 
     // Ambil video dari channel tersebut
     fetchFromAPI(`search?channelId=${id}&part=snippet&order=date`)
-      .then((data) => setVideos(data?.items));
+      .then((data) => setVideos(data?.items || []));
   }, [id]);
 
   return (

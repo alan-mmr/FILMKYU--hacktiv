@@ -15,11 +15,11 @@ const VideoDetail = () => {
   useEffect(() => {
     // Mengambil data video yang sedang diputar
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
-      .then((data) => setVideoDetail(data.items[0]));
+      .then((data) => setVideoDetail(data?.items?.[0]));
 
     // Mengambil data video terkait (sugesti)
     fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`)
-      .then((data) => setVideos(data.items));
+      .then((data) => setVideos(data?.items || []));
   }, [id]); // Efek ini berjalan setiap kali ID video di URL berubah
 
   // Tampilan loading jika data video belum siap
@@ -29,15 +29,19 @@ const VideoDetail = () => {
   const { snippet: { title, channelId, channelTitle }, statistics: { viewCount, likeCount } } = videoDetail;
 
   return (
-    <Box minHeight="95vh">
-      <Stack direction={{ xs: "column", md: "row" }}>
-        <Box flex={1}>
-          <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
-            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
-            <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
+    <Box minHeight="95vh" sx={{ pt: { xs: 0, md: 1 } }}>
+      <Box sx={{ width: '100%', maxWidth: '1400px', mx: 'auto', px: { xs: 1, sm: 2, md: 3 } }}>
+        <Stack direction={{ xs: 'column', lg: 'row' }} alignItems="flex-start" spacing={{ xs: 2, lg: 3 }}>
+          <Box flex={1} sx={{ minWidth: 0 }}>
+            <Box sx={{ position: 'relative', pt: '56.25%' }}>
+              <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+                <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} width="100%" height="100%" controls />
+              </Box>
+            </Box>
+            <Typography color="#fff" variant="h5" fontWeight="bold" mt={2}>
               {title}
             </Typography>
-            <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
+            <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} >
               <Link to={`/channel/${channelId}`}>
                 <Typography variant={{ sm: "subtitle1", md: 'h6' }}  color="#fff" >
                   {channelTitle}
@@ -54,11 +58,15 @@ const VideoDetail = () => {
               </Stack>
             </Stack>
           </Box>
-        </Box>
-        <Box px={2} py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center" >
-          <Videos videos={videos} direction="column" />
-        </Box>
-      </Stack>
+
+          <Box sx={{ width: { xs: '100%', lg: 420 } }}>
+            <Typography color="#fff" variant="h6" fontWeight="bold" mb={1}>
+              Recommended
+            </Typography>
+            <Videos videos={videos} direction="column" />
+          </Box>
+        </Stack>
+      </Box>
     </Box>
   );
 };

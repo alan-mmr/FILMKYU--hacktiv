@@ -16,21 +16,26 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 export const logo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png';
 
 export const categories = [
-  { name: 'New Trailers', icon: <MovieCreationIcon />, },
-  { name: 'Trending Movies', icon: <WhatshotIcon />, },
-  { name: 'Tara Arts Movie', icon: <VideocamIcon />, }, // Kategori Demo
-  { name: 'Short Film', icon: <TimerIcon />, },
-  { name: 'Web Series', icon: <SubscriptionsIcon />, },
-  { name: 'Action', icon: <LocalFireDepartmentIcon />, },
-  { name: 'Comedy', icon: <TheaterComedyIcon />, },
-  { name: 'Sci-Fi', icon: <PsychologyIcon />, },
-  { name: 'Drama', icon: <MasksIcon />, },
-  { name: 'Animation', icon: <BrushIcon />, },
-  { name: 'Documentary', icon: <ArticleIcon />, },
-  { name: 'Romance', icon: <FavoriteIcon />, },
-  { name: 'Horror', icon: <MovieFilterIcon />, },
-  // Kategori Family s/d Classic Film sudah dihapus sesuai permintaan
-  { name: "Behind the Scenes", icon: <CameraRollIcon /> },
+  { name: 'New Film', icon: <MovieCreationIcon /> },
+  { name: 'New Trailers', icon: <MovieCreationIcon /> },
+  { name: 'Trending Movies', icon: <WhatshotIcon /> },
+  { name: 'Movie Channel', icon: <VideocamIcon /> },
+  { name: 'Short Film', icon: <TimerIcon /> },
+  { name: 'Web Series', icon: <SubscriptionsIcon /> },
+  { name: 'Action', icon: <LocalFireDepartmentIcon /> },
+  { name: 'Comedy', icon: <TheaterComedyIcon /> },
+  { name: 'Sci-Fi', icon: <PsychologyIcon /> },
+  { name: 'Drama', icon: <MasksIcon /> },
+  { name: 'Animation', icon: <BrushIcon /> },
+  { name: 'Documentary', icon: <ArticleIcon /> },
+  { name: 'Romance', icon: <FavoriteIcon /> },
+  { name: 'Horror', icon: <MovieFilterIcon /> },
+  { name: 'Behind the Scenes', icon: <CameraRollIcon /> },
+];
+
+// Curated Indonesian movie/short-film channels (extend as needed)
+export const indoChannelIds = [
+  'UCrbkLNFTHuOPJi_Dy6q9gcQ', // Tara Arts Movie
 ];
 
 // Data demo merujuk ke video "DRAGON SUMMONER" dari Tara Arts Movie

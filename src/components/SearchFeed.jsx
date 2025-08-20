@@ -10,8 +10,13 @@ const SearchFeed = () => {
   const { searchTerm } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${searchTerm}`)
-      .then((data) => setVideos(data.items));
+    // Force Indonesia-focused search by appending "Indonesia" if missing
+    const q = `${searchTerm}`.toLowerCase().includes('indonesia')
+      ? searchTerm
+      : `${searchTerm} Indonesia`;
+
+    fetchFromAPI(`search?part=snippet&type=video&q=${encodeURIComponent(q)}`)
+      .then((data) => setVideos((data?.items || []).filter(v => v?.id?.videoId)));
   }, [searchTerm]); // Efek ini akan berjalan setiap kali searchTerm dari URL berubah
 
   return (

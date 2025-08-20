@@ -1,85 +1,105 @@
-# YouTube Clone (Proyek Capstone) 🚀
+## FILMKYU – YouTube-style video browser
 
-Aplikasi web ini adalah kloningan YouTube yang dibuat sebagai Capstone Project untuk program Hacktiv8 Student Developer Initiative. Aplikasi ini memungkinkan pengguna untuk menelusuri, melihat, dan menemukan video menggunakan data dari YouTube v3 API via RapidAPI.
+Modern, responsive web app for browsing and watching videos using the YouTube Data API v3 (via RapidAPI). Built with React, React Router, Material UI, and Axios.
 
-*This web application is a YouTube clone built as a Capstone Project for the Hacktiv8 Student Developer Initiative program. It allows users to browse, view, and discover videos using data from the YouTube v3 API via RapidAPI.*
+### Key features
+- **Home feed**: Default category is “New Film”, followed by “New Trailers”, “Trending Movies”, and curated “Movie Channel”.
+- **Categories**: Quickly switch topics from the left sidebar.
+- **Search**: Find videos by keyword.
+- **Video detail**: Wide 16:9 player, metadata, and a right-side “Recommended” list.
+- **Responsive**: Works well on desktop and mobile.
 
----
+### Tech stack
+- React 18, React Router v6
+- Material UI v5
+- Axios
+- YouTube v3 through RapidAPI
 
-### Screenshot 📸
+## Getting started
 
-[Di sini tempat kamu menaruh screenshot aplikasimu]
-![alt text](image.png)
+1) Install dependencies
+```bash
+npm install
+```
 
----
+2) Configure environment
+Create `.env` in the project root:
+```bash
+REACT_APP_RAPID_API_KEY=your_rapidapi_key_here
+```
 
-### Fitur ✨
+3) Run locally
+```bash
+npm start
+```
+App runs at `http://localhost:3000`.
 
-* **Browse Video:** Menampilkan video populer saat halaman pertama kali dimuat.
-* **Kategori:** Sidebar untuk memilih video berdasarkan kategori (Coding, Music, Gaming, dll.).
-* **Fungsi Pencarian:** Mencari video berdasarkan kata kunci.
-* **Desain Responsif:** Tampilan yang menyesuaikan dengan berbagai ukuran layar.
+### Helpful scripts
+- `npm start`: start dev server
+- `npm run build`: production build
 
-* **Video Browsing:** Displays popular videos on initial load.
-* **Categories:** A sidebar to select videos based on categories (Coding, Music, Gaming, etc.).
-* **Search Functionality:** Search for videos using keywords.
-* **Responsive Design:** The layout adapts to different screen sizes.
+## Project structure
+```text
+filmkyu/
+  public/                 # Static assets & HTML template
+  src/
+    components/
+      ChannelCard.jsx     # Channel avatar, title, link, subscriber count
+      ChannelDetail.jsx    # Channel banner + videos from the channel
+      Feed.jsx             # Home feed with sidebar + videos grid
+      Navbar.jsx           # Sticky top bar with logo and SearchBar
+      SearchBar.jsx        # Search input (submit navigates to results)
+      SearchFeed.jsx       # Search results page
+      Sidebar.jsx          # Categories list
+      VideoCard.jsx        # Single video card used in lists
+      VideoDetail.jsx      # Video player page (player left, recs right)
+      Videos.jsx           # Generic list renderer for videos/channels
+    utils/
+      constants.js         # UI constants, categories, curated Indo channels
+      fetchFromAPI.js      # Axios helper for RapidAPI (maxResults=50)
+    App.js                # Router and page mounting
+    index.js              # React entry
+    index.css             # Global styles (navbar sticky, player sizing)
+```
 
----
+## Routing
+- `/` → `Feed`: shows “New Trailers” by default
+- `/search/:searchTerm` → `SearchFeed`
+- `/video/:id` → `VideoDetail`
+- `/channel/:id` → `ChannelDetail`
 
-### Teknologi yang Digunakan 💻
+## Components (brief)
+- `Videos` (props: `videos`, `direction='row'`): renders a list. Detects whether an item is a video or a channel by inspecting `item.id`.
+- `VideoCard` (prop: `video`): safe fallbacks for title/thumbnail; links to `/video/:id`.
+- `ChannelCard` (prop: `channelDetail`): safe fallbacks; links to `/channel/:id`.
+- `VideoDetail`: responsive 16:9 player; recommendations on the right (column on small screens).
+- `Feed`/`SearchFeed`/`ChannelDetail`: fetch data and render `Videos`.
 
-* **React.js** (Library Frontend)
-* **Material UI v5** (Komponen UI)
-* **React Router v6** (Navigasi Halaman)
-* **Axios** (HTTP Client untuk memanggil API)
-* **RapidAPI** (Platform untuk mengakses YouTube v3 API)
+## Data fetching
+- All requests go through `utils/fetchFromAPI.js`.
+- Base: `https://youtube-v31.p.rapidapi.com`
+- Common params: `maxResults: 50`
+- Env var required: `REACT_APP_RAPID_API_KEY`
 
----
+### Curation rules (Filmkyu)
+- Feed/search queries are scoped to Indonesia by default.
+- “Movie Channel” shows a curated list of Indonesian channels (editable in `utils/constants.js` via `indoChannelIds`).
+- Shorts are avoided by preferring standard videos in queries; trailers remain included.
 
-### **Setup & Cara Menjalankan Lokal** 🚀
+## Styling notes
+- Sticky navbar with high `z-index` to avoid overlap.
+- Player uses CSS aspect ratio trick for full-width 16:9.
+- Global rules in `src/index.css` (scrollbar, search input, responsive tweaks).
 
-Untuk menjalankan proyek ini di komputermu, ikuti langkah-langkah berikut:
+## Troubleshooting
+- Empty lists or crashes → ensure `.env` has a valid `REACT_APP_RAPID_API_KEY`, then restart `npm start` (Create React App only loads env vars at boot).
+- Rate limit/403 → you may have exceeded RapidAPI quota; try again later or upgrade your plan.
+- Overlapping header when scrolling → fixed by sticky `Navbar` with `zIndex: 1200` and proper spacing in `VideoDetail`.
 
-*To run this project on your local machine, follow these steps:*
+## Customization tips
+- Change default category: edit `selectedCategory` in `components/Feed.jsx`.
+- Add/remove categories: update `utils/constants.js`.
+- Tune layout: adjust `Videos` `direction` or container widths in `VideoDetail.jsx`.
 
-1.  **Clone Repository Ini**
-    ```bash
-    git clone [https://github.com/NAMAGITHUBMU/NAMAREPOMU.git](https://github.com/NAMAGITHUBMU/NAMAREPOMU.git)
-    ```
-
-2.  **Masuk ke Direktori Proyek**
-    ```bash
-    cd NAMA-REPO-MU
-    ```
-
-3.  **Install Dependencies**
-    ```bash
-    npm install
-    ```
-
-4.  **Dapatkan API Key**
-    * Kamu butuh API Key untuk menjalankan aplikasi ini.
-    * Daftar/Login di [RapidAPI](https://rapidapi.com).
-    * Cari dan *subscribe* ke API **"YouTube v3"** oleh `youtube-v31`.
-    * Kamu akan mendapatkan `X-RapidAPI-Key`.
-    ---
-    * *You will need an API Key to run this application.*
-    * *Sign up or log in at [RapidAPI](https://rapidapi.com).*
-    * *Search for and subscribe to the **"YouTube v3"** API by `youtube-v31`.*
-    * *You will get an `X-RapidAPI-Key`.*
-
-5.  **Buat file `.env`**
-    * Salin file `.env.example` menjadi file baru bernama `.env`.
-    * Buka file `.env` dan masukkan API Key-mu.
-        ```
-        REACT_APP_RAPID_API_KEY=MASUKKAN_API_KEY_KAMU_DI_SINI
-        ```
-    * *Copy the `.env.example` file to a new file named `.env`.*
-    * *Open the `.env` file and insert your API Key.*
-
-6.  **Jalankan Aplikasi**
-    ```bash
-    npm start
-    ```
-    Aplikasi akan berjalan di `http://localhost:3000`.
+## License
+For learning and demo purposes. Replace assets and API keys with your own before publishing.
